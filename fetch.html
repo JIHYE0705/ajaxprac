@@ -6,20 +6,38 @@
 
         </article>
         <input type="button" value="fetch" onclick="
-        //     fetch('html').then(function(response){
+        //     fetch('html').then(function(response){       //then(function) -> 이름이 없는 함수(then안에서만 사용되기때문에 이름이 필요 없음)
         //     response.text().then(function(text){
         //     document.querySelector('article').innerHTML = text;
         //     })
         // })
         
         //Asynchronous -> 비동기 실행(동시실행, 병렬적)
-        function callbackme(){
-            console.log('response end');
-        }
-        fetch('html').then(callbackme);     // fetch로 html로드
-        console.log(1);                     // console에 log 찍어주고
-        console.log(2);                     // callbackme 소환
+        // function callbackme(){
+        //     console.log('response end');
+        // }
+
+        // callbackme = function(){
+        //     console.log('response end');    //위의 함수와 같음
+        // }
+
+        // fetch('html').then(callbackme);     // fetch로 html로드
+        // console.log(1);                     // console에 log 찍어주고
+        // console.log(2);                     // callbackme 소환
+        
+        
+        fetch('html').then(function(response){      //함수를 재사용하지 않기때문에 then안에 function으로 함수 사용
+            console.log(response.status);
+            if(response.status == '404') {
+                alert('Not found');
+            }
+        });     
+        console.log(1);                     
+        console.log(2); 
+        
+        
+        
         ">
-    2">
+    
     </body>
 </html>
