@@ -6,11 +6,20 @@
 
         </article>
         <input type="button" value="fetch" onclick="
-            fetch('html').then(function(response){
-            response.text().then(function(text){
-            document.querySelector('article').innerHTML = text;
-            })
-        })
+        //     fetch('html').then(function(response){
+        //     response.text().then(function(text){
+        //     document.querySelector('article').innerHTML = text;
+        //     })
+        // })
+        
+        //Asynchronous -> 비동기 실행(동시실행, 병렬적)
+        function callbackme(){
+            console.log('response end');
+        }
+        fetch('html').then(callbackme);     // fetch로 html로드
+        console.log(1);                     // console에 log 찍어주고
+        console.log(2);                     // callbackme 소환
         ">
+    2">
     </body>
 </html>
